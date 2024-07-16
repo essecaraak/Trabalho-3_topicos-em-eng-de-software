@@ -1,0 +1,15 @@
+require('dotenv').config();
+const { getGeocode } = require('./geocoding');
+
+const address = 'rua montreal 09, santa cruz, rj'; // Exemplo de endereço
+
+async function main() {
+  try {
+    const geocodeData = await getGeocode(address);
+    console.log('Dados de Geocodificação:', JSON.stringify(geocodeData, null, 2));
+  } catch (error) {
+    console.error('Erro ao obter dados de geocodificação:', error.message);
+  }
+}
+
+main();

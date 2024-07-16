@@ -1,8 +1,8 @@
 require('dotenv').config();
 const { getDistanceMatrix } = require('./distanceMatrix');
 
-const origins = ['São Paulo,BR'];
-const destinations = ['Brasília,BR'];
+const origins = ['São Paulo,BR','cuiabá,BR'];
+const destinations = ['Brasília,BR','RIO GRANDE DO SUL,BR'];
 
 async function main() {
   try {
