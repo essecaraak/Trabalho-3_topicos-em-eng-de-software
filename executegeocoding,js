@@ -1,28 +1,26 @@
-require('dotenv').config();
-const { getGeocode } = require('./geocoding');
-const apikey =process.env.apikey;
+require('dotenv').config(); // Carrega variáveis de ambiente do arquivo .env
+const { getGeocode } = require('./geocoding'); // Importa a função getGeocode
+const apikey = process.env.API_KEY; // Corrigido para corresponder ao nome da variável de ambiente
 const addresses = [
-  "R. Montreal, 9 - Santa Cruz, Rio de Janeiro - RJ, 23525-020, Brazil"
-]; // Lista de CEPs
+  null
+]; // Lista de endereços
 
 async function main() {
   try {
-    const geocodeData = await Promise.all(
-      addresses.map(async (address) => {
-        try {
-          const data = await getGeocode(address,apikey);
-          console.log('Endereços :', JSON.stringify(data, null, 2));
-
-          const formatted_address = data.results[0].formatted_address;
-          return { address, formatted_address };
-        } catch (error) {
-          console.error(`Erro ao obter dados de geocodificação para ${address}:`, error.message);
-          return { address, error: error.message };
-        }
-      })
-    );
-    //console.log('Endereços formatados:', JSON.stringify(data, null, 2));
+    // Passa o endereço e a chave da API para a função getGeocode
+    const data = await getGeocode(null, apikey);
+    
+    // Verifica se a resposta é válida e imprime o status
+    if (data && data.status) {
+      console.log(`Status da resposta: ${data.status}`);
+    } else {
+      console.log('Nenhum status encontrado na resposta.');
+    }
+    
+    // Outras manipulações de dados podem ser feitas aqui
+    // console.log('Endereços formatados:', JSON.stringify(data, null, 2));
   } catch (error) {
+    // Captura e imprime mensagens de erro
     console.error('Erro ao processar os dados de geocodificação:', error.message);
   }
 }

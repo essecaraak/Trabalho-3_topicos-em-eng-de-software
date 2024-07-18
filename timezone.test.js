@@ -510,7 +510,7 @@ describe('Time Zone API Tests', () => {
         const data = await getTimeZone(location, timestamp, apiKeyToUse);
         
         if (expected.status) {
-          expect(data.status).toBe(expected.status);
+          await expect(data.status).toBe(expected.status);
         } else {
           expect(data.timeZoneId).toBe(expected.timeZoneId);
           expect(data.timeZoneName).toBe(expected.timeZoneName);

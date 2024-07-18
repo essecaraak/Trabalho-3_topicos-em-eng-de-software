@@ -15,7 +15,11 @@ async function getGeocode(address,apiKey) {
     return response.data;
   } catch (error) {
     console.error('Erro ao chamar a API Geocoding:', error);
-    throw error;
+    
+    return data={
+
+      status:"INVALID_REQUEST"
+    }
   }
 }
 
