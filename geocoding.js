@@ -1,8 +1,7 @@
 require('dotenv').config();
 const axios = require('axios');
 
-async function getGeocode(address) {
-  const apiKey = process.env.apiKey;
+async function getGeocode(address,apiKey) {
   const url = `https://maps.googleapis.com/maps/api/geocode/json`;
 
   try {

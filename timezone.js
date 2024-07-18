@@ -1,8 +1,7 @@
 require('dotenv').config();
 const axios = require('axios');
 
-async function getTimeZone(location, timestamp) {
-  const apiKey = process.env.apiKey;
+async function getTimeZone(location, timestamp,apiKey) {
   const url = `https://maps.googleapis.com/maps/api/timezone/json`;
 
   try {
