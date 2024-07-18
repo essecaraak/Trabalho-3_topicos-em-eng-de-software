@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { getTimeZone } = require('./timezone');
 
-const location = '34.0522,-118.2437'; // Exemplo: coordenadas de Los Angeles
+const location = "55.755825, 37.617298"; // Exemplo: coordenadas de Los Angeles
 const timestamp = Math.floor(Date.now() / 1000); // Tempo atual em segundos desde 1970
 
 async function main() {
