@@ -1,14 +1,66 @@
 require('dotenv').config();
 const { getGeocode } = require('./geocoding');
 
-const address = 'rua montreal 09, santa cruz, rj'; // Exemplo de endereço
+const addresses = [
+  "26291230",  
+  "20010000",  
+  "30110010", 
+  "70040010",  
+  "80010020",  
+  "26261220",  
+  "50010240",  
+  "60010150",  
+  "69010000",  
+  "78010000",  
+  "64000000",  
+  "49010390",  
+  "57020000",  
+  "66010000",  
+  "77001006",  
+  "29010130",  
+  "90010110",  
+  "88010400",  
+  "76801000",  
+  "69301150",  
+  "58010000",  
+  "25550600",  
+  "66055240",  
+  "69020060",  
+  "23525020",  
+  "23890000",  
+  "40285000",  
+  "31515000",  
+  "20230014",  
+  "04870000",  
+  "30140002",  
+  "50670000",  
+  "60810050",  
+  "60060270",  
+  "58040000",  
+  "38400702",  
+  "26210210",  
+  "19015050",  
+  "26900000",  
+  "58033455"   
+]; // Lista de CEPs
 
 async function main() {
   try {
-    const geocodeData = await getGeocode(address);
-    console.log('Dados de Geocodificação:', JSON.stringify(geocodeData, null, 2));
+    const geocodeData = await Promise.all(
+      addresses.map(async (address) => {
+        try {
+          const data = await getGeocode(address);
+          const formatted_address = data.results[0].formatted_address;
+          return { address, formatted_address };
+        } catch (error) {
+          console.error(`Erro ao obter dados de geocodificação para ${address}:`, error.message);
+          return { address, error: error.message };
+        }
+      })
+    );
+    console.log('Endereços formatados:', JSON.stringify(geocodeData, null, 2));
   } catch (error) {
-    console.error('Erro ao obter dados de geocodificação:', error.message);
+    console.error('Erro ao processar os dados de geocodificação:', error.message);
   }
 }
 
