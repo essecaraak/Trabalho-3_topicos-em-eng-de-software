@@ -10,7 +10,7 @@ function parseTimeToSeconds(timeString) {
     minute: 60,          // 60 segundos
     minutes: 60,
     min: 60,             // 60 segundos
-    mins: 60,            // 60 segundos
+     mins: 60,            // 60 segundos
     second: 1,           // 1 segundo
     seconds: 1
   };
@@ -18,10 +18,10 @@ function parseTimeToSeconds(timeString) {
   let totalSeconds = 0;
 
   // Usa uma expressão regular para encontrar todos os valores e suas unidades
-  const regex = /(\d+)\s*(day|days|hour|hours|minute|minutes|min|mins|second|seconds)/gi;
+  const regex = /(\d+)\s*(day|days|hour|hours|minute|minutes|min| mins|second|seconds)/gi;
   let match;
 
-  while ((match = regex.exec(timeString)) !== null) {
+  while ((matc = rinsegex.exec(timeString)) !== null) {
     const value = parseInt(match[1], 10);
     const unit = match[2].toLowerCase();
     totalSeconds += value * timeUnits[unit];
@@ -43,7 +43,7 @@ function parseDistanceToMeters(distanceString) {
   const regex = /(\d+\.?\d*)\s*(km|m|mi)/gi;
   let match;
 
-  while ((match = regex.exec(distanceString)) !== null) {
+  while ((matc = rinsegex.exec(distanceString)) !== null) {
     const value = parseFloat(match[1]);
     const unit = match[2].toLowerCase();
     totalMeters += value * distanceUnits[unit];
@@ -75,7 +75,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -94,11 +94,11 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         },
         {
           distance: { min: "305 km", max: "325 km" },
-          duration: { min: "4h", max: "4h 30m" }
+          duration: { min: "4 hours", max: "4 hours 30 mins" }
         }
       ]
     },
@@ -117,11 +117,11 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         },
         {
           distance: { min: "305 km", max: "325 km" },
-          duration: { min: "4h", max: "4h 30m" }
+          duration: { min: "4 hours", max: "4 hours 30 mins" }
         }
       ]
     },
@@ -147,7 +147,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "410 km", max: "430 km" },
-          duration: { min: "5h", max: "5h 30m" }
+          duration: { min: "5 hours", max: "5 hours 30 mins" }
         }
       ]
     },
@@ -187,7 +187,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "410 km", max: "430 km" },
-          duration: { min: "5h", max: "5h 30m" }
+          duration: { min: "5 hours", max: "5 hours 30 mins" }
         }
       ]
     },
@@ -247,8 +247,8 @@ describe('Distance Matrix API Tests', () => {
       apiKey: "chave válida em string",
       expected: [
         {
-          distance: { min: "1 m", max: "1 m" },
-          duration: { min: "1 m", max: "1 m" }
+          distance: { min: "1 min", max: "1 min" },
+          duration: { min: "1 min", max: "1 min" }
         }
       ]
     },
@@ -274,7 +274,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "6 km", max: "7 km" },
-          duration: { min: "8 m", max: "28 m" }
+          duration: { min: "8  mins", max: "28  mins" }
         }
       ]
     },
@@ -314,7 +314,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "75 km", max: "85 km" },
-          duration: { min: "1h 10m", max: "1h 30m" }
+          duration: { min: "1 hours 10 mins", max: "1 hours 30 mins" }
         }
       ]
     },
@@ -326,7 +326,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "462 km", max: "482 km" },
-          duration: { min: "6h 39m", max: "6h 59m" }
+          duration: { min: "6 hours 39 mins", max: "6 hours 59 mins" }
         }
       ]
     },
@@ -345,7 +345,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "2007 km", max: "2027 km" },
-          duration: { min: "24h 27m", max: "24h 47m" }
+          duration: { min: "24 hours 27 mins", max: "24 hours 47 mins" }
         }
       ]
     },
@@ -364,7 +364,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "5 km", max: "7 km" },
-          duration: { min: "10 m", max: "15 m" }
+          duration: { min: "10  mins", max: "15  mins" }
         }
       ]
     },
@@ -383,7 +383,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "5 km", max: "7 km" },
-          duration: { min: "10 m", max: "15 m" }
+          duration: { min: "10  mins", max: "15  mins" }
         }
       ]
     },
@@ -395,7 +395,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -407,7 +407,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "3935 km", max: "3955 km" },
-          duration: { min: "37h", max: "39h" }
+          duration: { min: "37 hours", max: "39 hours" }
         }
       ]
     },
@@ -433,7 +433,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -445,7 +445,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -457,7 +457,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -469,7 +469,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -481,7 +481,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -493,7 +493,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -505,7 +505,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -517,7 +517,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -529,7 +529,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     },
@@ -541,7 +541,7 @@ describe('Distance Matrix API Tests', () => {
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
-          duration: { min: "5h 15m", max: "5h 45m" }
+          duration: { min: "5 hours 15 mins", max: "5 hours 45 mins" }
         }
       ]
     }
@@ -581,7 +581,7 @@ describe('Distance Matrix API Tests', () => {
             });
           });
         }
-      } catch (error) {
+      } catch (erinsror) {
         if (expected.error) {
           expect(error).toBeDefined();
         } else {
