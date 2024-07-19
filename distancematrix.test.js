@@ -21,7 +21,7 @@ function parseTimeToSeconds(timeString) {
   const regex = /(\d+)\s*(day|days|hour|hours|minute|minutes|min| mins|second|seconds)/gi;
   let match;
 
-  while ((matc = rinsegex.exec(timeString)) !== null) {
+  while ((match = rinsegex.exec(timeString)) !== null) {
     const value = parseInt(match[1], 10);
     const unit = match[2].toLowerCase();
     totalSeconds += value * timeUnits[unit];
@@ -43,7 +43,7 @@ function parseDistanceToMeters(distanceString) {
   const regex = /(\d+\.?\d*)\s*(km|m|mi)/gi;
   let match;
 
-  while ((matc = rinsegex.exec(distanceString)) !== null) {
+  while ((match = rinsegex.exec(distanceString)) !== null) {
     const value = parseFloat(match[1]);
     const unit = match[2].toLowerCase();
     totalMeters += value * distanceUnits[unit];
@@ -84,7 +84,7 @@ describe('Distance Matrix API Tests', () => {
       origins: [""],
       destinations: ["são paulo"],
       apiKey: "chave válida em string",
-      expected: ["requisição inválida"]
+      expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT03",
@@ -107,7 +107,7 @@ describe('Distance Matrix API Tests', () => {
       origins: ["são paulo"],
       destinations: [""],
       apiKey: "chave válida em string",
-      expected: ["requisição inválida"]
+      expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT05",
@@ -130,14 +130,14 @@ describe('Distance Matrix API Tests', () => {
       origins: ["rio de janeiro"],
       destinations: ["são paulo"],
       apiKey: "",
-      expected: ["requisição negada"]
+      expected: { status: 'REQUEST_DENIED' }
     },
     {
       id: "CT07",
       origins: ["rio de janeiro"],
       destinations: ["são paulo"],
       apiKey: ["chave válida em string", "chave válida em string"],
-      expected: ["requisição negada"]
+      expected: { status: 'REQUEST_DENIED' }
     },
     {
       id: "CT08",
@@ -156,28 +156,28 @@ describe('Distance Matrix API Tests', () => {
       origins: ["abc"],
       destinations: ["são paulo"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT10",
       origins: ["999999999999"],
       destinations: ["são paulo"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT11",
       origins: [null],
       destinations: ["são paulo"],
       apiKey: "chave válida em string",
-      expected: ["requisição inválida"]
+      expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT12",
       origins: ["Não string, não integer, não null"],
       destinations: ["são paulo"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT13",
@@ -196,49 +196,49 @@ describe('Distance Matrix API Tests', () => {
       origins: ["são paulo"],
       destinations: ["abc"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT15",
       origins: ["são paulo"],
       destinations: ["999999999999"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT16",
       origins: ["são paulo"],
       destinations: [null],
       apiKey: "chave válida em string",
-      expected: ["requisição inválida"]
+      expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT17",
       origins: ["são paulo"],
       destinations: ["Não string, não integer, não null"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT18",
       origins: ["rio de janeiro"],
       destinations: ["são paulo"],
       apiKey: "chave válida convertida para integer",
-      expected: ["requisição negada"]
+      expected: { status: 'REQUEST_DENIED' }
     },
     {
       id: "CT19",
       origins: ["rio de janeiro"],
       destinations: ["são paulo"],
       apiKey: null,
-      expected: ["requisição negada"]
+      expected: { status: 'REQUEST_DENIED' }
     },
     {
       id: "CT20",
       origins: ["rio de janeiro"],
       destinations: ["são paulo"],
       apiKey: "chave inválida",
-      expected: ["requisição negada"]
+      expected: { status: 'REQUEST_DENIED' }
     },
     {
       id: "CT21",
@@ -257,14 +257,14 @@ describe('Distance Matrix API Tests', () => {
       origins: [""],
       destinations: [""],
       apiKey: "chave válida em string",
-      expected: ["requisição inválida"]
+      expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT23",
       origins: ["-22.942631", "-43.683310"],
       destinations: ["-22.900371528558335", "-43.676330076152006"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT24",
@@ -283,28 +283,28 @@ describe('Distance Matrix API Tests', () => {
       origins: ["kyoto, japão"],
       destinations: ["Santa cruz, rj"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT26",
       origins: ["nova iorque, EUA"],
       destinations: ["Santa cruz, rj"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT27",
       origins: ["mexico"],
       destinations: ["Santa cruz, rj"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT28",
       origins: ["Cidade do México, distrito federal"],
       destinations: ["Santa cruz, rj"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT29",
@@ -335,7 +335,7 @@ describe('Distance Matrix API Tests', () => {
       origins: ["19000000"],
       destinations: ["30110001"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT32",
@@ -354,7 +354,7 @@ describe('Distance Matrix API Tests', () => {
       origins: ["15 5647-921"],
       destinations: ["24 5647-927"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT34",
@@ -373,7 +373,7 @@ describe('Distance Matrix API Tests', () => {
       origins: ["15 5647-921"],
       destinations: ["15 5647-929"],
       apiKey: "chave válida em string",
-      expected: ["resultado não encontrado"]
+      expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT36",
@@ -416,14 +416,14 @@ describe('Distance Matrix API Tests', () => {
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
       apiKey: "chave inválida",
-      expected: ["requisição negada"]
+      expected: {status: "REQUEST_DENIED"}
     },
     {
       id: "CT40",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
       apiKey: "",
-      expected: ["requisição negada"]
+      expected: {status: "REQUEST_DENIED"}
     },
     {
       id: "CT41",
@@ -581,7 +581,7 @@ describe('Distance Matrix API Tests', () => {
             });
           });
         }
-      } catch (erinsror) {
+      } catch (error) {
         if (expected.error) {
           expect(error).toBeDefined();
         } else {
