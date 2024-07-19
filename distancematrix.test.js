@@ -71,7 +71,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT01",
       origins: ["rio de janeiro"],
       destinations: ["são paulo"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -83,14 +83,14 @@ describe('Distance Matrix API Tests', () => {
       id: "CT02",
       origins: [""],
       destinations: ["são paulo"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT03",
       origins: ["rio de janeiro", "varginha, minas gerais"],
       destinations: ["são paulo"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -106,14 +106,14 @@ describe('Distance Matrix API Tests', () => {
       id: "CT04",
       origins: ["são paulo"],
       destinations: [""],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT05",
       origins: ["são paulo"],
       destinations: ["rio de janeiro", "varginha, minas gerais"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -136,14 +136,14 @@ describe('Distance Matrix API Tests', () => {
       id: "CT07",
       origins: ["rio de janeiro"],
       destinations: ["são paulo"],
-      apiKey: ["chave válida em string", "chave válida em string"],
+      apiKey: ["AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA", "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA"],
       expected: { status: 'REQUEST_DENIED' }
     },
     {
       id: "CT08",
       origins: ["23525020"],
       destinations: ["são paulo"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "410 km", max: "430 km" },
@@ -155,35 +155,35 @@ describe('Distance Matrix API Tests', () => {
       id: "CT09",
       origins: ["abc"],
       destinations: ["são paulo"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT10",
       origins: ["999999999999"],
       destinations: ["são paulo"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT11",
       origins: [null],
       destinations: ["são paulo"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT12",
       origins: ["Não string, não integer, não null"],
       destinations: ["são paulo"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT13",
       origins: ["são paulo"],
       destinations: ["23525020"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "410 km", max: "430 km" },
@@ -195,28 +195,28 @@ describe('Distance Matrix API Tests', () => {
       id: "CT14",
       origins: ["são paulo"],
       destinations: ["abc"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT15",
       origins: ["são paulo"],
       destinations: ["999999999999"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT16",
       origins: ["são paulo"],
       destinations: [null],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT17",
       origins: ["são paulo"],
       destinations: ["Não string, não integer, não null"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
@@ -244,7 +244,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT21",
       origins: ["rio de janeiro"],
       destinations: ["rio de janeiro"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "1 min", max: "1 min" },
@@ -256,21 +256,21 @@ describe('Distance Matrix API Tests', () => {
       id: "CT22",
       origins: [""],
       destinations: [""],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: {status: "INVALID_REQUEST"}
     },
     {
       id: "CT23",
       origins: ["-22.942631", "-43.683310"],
       destinations: ["-22.900371528558335", "-43.676330076152006"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT24",
       origins: ["-22.942631, -43.683310"],
       destinations: ["-22.900371528558335, -43.676330076152006"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "6 km", max: "7 km" },
@@ -282,35 +282,35 @@ describe('Distance Matrix API Tests', () => {
       id: "CT25",
       origins: ["kyoto, japão"],
       destinations: ["Santa cruz, rj"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT26",
       origins: ["nova iorque, EUA"],
       destinations: ["Santa cruz, rj"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT27",
       origins: ["mexico"],
       destinations: ["Santa cruz, rj"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT28",
       origins: ["Cidade do México, distrito federal"],
       destinations: ["Santa cruz, rj"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT29",
       origins: ["Cidade do México, distrito federal"],
       destinations: ["Tepeji del Río de Ocampo"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "75 km", max: "85 km" },
@@ -322,7 +322,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT30",
       origins: ["23525020"],
       destinations: ["30110001"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "462 km", max: "482 km" },
@@ -334,14 +334,14 @@ describe('Distance Matrix API Tests', () => {
       id: "CT31",
       origins: ["19000000"],
       destinations: ["30110001"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT32",
       origins: ["50670000"],
       destinations: ["30110001"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "2007 km", max: "2027 km" },
@@ -353,14 +353,14 @@ describe('Distance Matrix API Tests', () => {
       id: "CT33",
       origins: ["15 5647-921"],
       destinations: ["24 5647-927"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT34",
       origins: ["15 5647-921"],
       destinations: ["15 5647-927"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "5 km", max: "7 km" },
@@ -372,14 +372,14 @@ describe('Distance Matrix API Tests', () => {
       id: "CT35",
       origins: ["15 5647-921"],
       destinations: ["15 5647-929"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: { status: 'ZERO_RESULTS' }
     },
     {
       id: "CT36",
       origins: ["15 5647-929"],
       destinations: ["15 5647-921"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "5 km", max: "7 km" },
@@ -391,7 +391,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT37",
       origins: ["23.5489", "-46.6388"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -403,7 +403,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT38",
       origins: ["40.7128", "-74.0060"],
       destinations: ["34.0522", "-118.2437"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "3935 km", max: "3955 km" },
@@ -429,7 +429,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT41",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -441,7 +441,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT42",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -453,7 +453,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT43",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -465,7 +465,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT44",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -477,7 +477,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT45",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -489,7 +489,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT46",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -501,7 +501,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT47",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -513,7 +513,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT48",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -525,7 +525,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT49",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
@@ -537,7 +537,7 @@ describe('Distance Matrix API Tests', () => {
       id: "CT50",
       origins: ["-23.5505", "-46.6333"],
       destinations: ["-22.9068", "-43.1729"],
-      apiKey: "chave válida em string",
+      apiKey: "AIzaSyDPdM_lHMuKC6NtGVTCzrY39_pmZB2J0gA",
       expected: [
         {
           distance: { min: "430 km", max: "450 km" },
