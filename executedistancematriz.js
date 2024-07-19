@@ -1,8 +1,8 @@
 require('dotenv').config();
 const { getDistanceMatrix } = require('./distanceMatrix');
 
-const origins = ['Av. Gov. Paulo Barreto de Menezes, Aracaju - SE, Brazil', 'Rio de Janeiro, State of Rio de Janeiro, Brazil'];
-const destinations = ['R. Sergipe - Siqueira Campos, Aracaju - SE, 49075-540, Brazil', 'São Paulo, State of São Paulo, Brazil'];
+const origins = ["-23.5505", "-46.6333"];
+const destinations = ["-22.9068", "-43.1729"];
 const apikey = process.env.apikey;
 
 async function main() {
